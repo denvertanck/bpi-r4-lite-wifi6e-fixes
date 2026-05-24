@@ -1,0 +1,15 @@
+--- a/target/linux/mediatek/dts/mt7987a-bananapi-bpi-r4-lite.dts
++++ b/target/linux/mediatek/dts/mt7987a-bananapi-bpi-r4-lite.dts
+@@ -9999,0 +9999,12 @@
++
++&pcie1 {
++	status = "okay";
++};
++
++&pio {
++	pcie_sel: aw35710qnr_sel {
++		gpio-hog;
++		gpios = <11 GPIO_ACTIVE_HIGH>;
++		output-low;
++	};
++};
