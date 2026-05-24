@@ -2,7 +2,7 @@
 
 > **⚠️ CRITICAL ARCHITECTURAL WARNING**
 > These patches are mathematically mapped and engineered **strictly for the Banana Pi BPI-R4 LITE**. 
-> Do not apply these configurations to the standard BPI-R4 main board. The GPIO pin layouts and PCIe lane multiplexing are physically different. Applying this to a standard BPI-R4 may result in kernel panics or hardware instability.
+> Do not apply these configurations to the standard BPI-R4 main board. The GPIO pin layouts and PCIe lane multiplexing are physically different. Applying this to a standard BPI-R4 may result in kernel panics or hardware instability. BUT IF you ever try the fix on a BPI-R4 please share the result with me. 
 
 ### The Firmware Baseline: OpenWrt 25.12.4
 **Critical Context:** These patches were mapped, compiled, and mathematically validated against **OpenWrt version 25.12.4**. As the OpenWrt ecosystem evolves, upstream developers may permanently integrate the PCIe multiplexing fix for dual-mPCIe Banana Pi architectures into future releases. If you are compiling a version strictly newer than 25.12.4, verify the upstream target commits before applying the DTS patch to prevent structural collisions.
