@@ -2,13 +2,17 @@
 
 > **⚠️ CRITICAL ARCHITECTURAL WARNING**
 > These patches are mathematically mapped and engineered **strictly for the Banana Pi BPI-R4 LITE**. 
-> I do not own a BPI-R4, so if you try it and you succeeded please update me here so more people will know about the fix.
 > Do not apply these configurations to the standard BPI-R4 main board. The GPIO pin layouts and PCIe lane multiplexing are physically different. Applying this to a standard BPI-R4 may result in kernel panics or hardware instability.
 
-## The Mechanical Diagnosis
-When compiling OpenWrt from source for the BPI-R4 Lite paired with a Wi-Fi 6E module (specifically utilizing the MT7916 chipset, such as the AsiaRF AW7916-NPD), two distinct physical and driver-level failures occur:
+### The Firmware Baseline: OpenWrt 25.12.4
+**Critical Context:** These patches were mapped, compiled, and mathematically validated against **OpenWrt version 25.12.4**. As the OpenWrt ecosystem evolves, upstream developers may permanently integrate the PCIe multiplexing fix for dual-mPCIe Banana Pi architectures into future releases. If you are compiling a version strictly newer than 25.12.4, verify the upstream target commits before applying the DTS patch to prevent structural collisions.
 
-1. **The PCIe Multiplexing Failure:** The default Device Tree Source (DTS) for the Lite board does not properly activate the secondary PCIe interface (`pcie1`) Slot CN11 or trigger the correct GPIO switch required to route the data lanes to the Wi-Fi card.
+---
+
+## The Mechanical Diagnosis
+When compiling OpenWrt from source for the BPI-R4 Lite paired with a Wi-Fi 6E module (specifically utilizing the MT7916 chipset, such as the AW7916-NPD), two distinct physical and driver-level failures occur:
+
+1. **The PCIe Multiplexing Failure:** The default Device Tree Source (DTS) for the Lite board does not properly activate the secondary PCIe interface (`pcie1`) or trigger the correct GPIO switch required to route the data lanes to the Wi-Fi card.
 2. **The 6GHz Spectrum Drop:** The MediaTek MT76 MAC80211 driver (`eeprom.c`) contains a fallback logic that frequently fails to lock the MT7916 module into the 6GHz spectrum, aggressively downgrading the radio broadcast to 5GHz.
 
 This repository contains the two mathematical patch files required to bypass these structural limitations.
