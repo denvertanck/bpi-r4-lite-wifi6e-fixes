@@ -10,7 +10,7 @@
 ---
 
 ## The Mechanical Diagnosis
-When compiling OpenWrt from source for the BPI-R4 Lite paired with a Wi-Fi 6E module (specifically utilizing the MT7916 chipset, such as the AW7916-NPD), two distinct physical and driver-level failures occur:
+When compiling OpenWrt from source for the BPI-R4 Lite paired with a Wi-Fi 6E module (specifically utilizing the MT7916 chipset, such as the AsiaRF AW7916-NPD), two distinct physical and driver-level failures occur:
 
 1. **The PCIe Multiplexing Failure:** The default Device Tree Source (DTS) for the Lite board does not properly activate the secondary PCIe interface (`pcie1`) or trigger the correct GPIO switch required to route the data lanes to the Wi-Fi card.
 2. **The 6GHz Spectrum Drop:** The MediaTek MT76 MAC80211 driver (`eeprom.c`) contains a fallback logic that frequently fails to lock the MT7916 module into the 6GHz spectrum, aggressively downgrading the radio broadcast to 5GHz.
