@@ -74,7 +74,3 @@ make -j$(nproc) V=s
 ```
 
 After successfully flashing the resulting `sysupgrade.itb` file to your BPI-R4 Lite, your AW7916 Wi-Fi 6E module will be structurally recognized by the PCIe bus and broadcast natively on the 6GHz spectrum.
-
-```
-
-```
