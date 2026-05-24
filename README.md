@@ -75,4 +75,5 @@ make -j$(nproc) V=s
 
 After successfully flashing the resulting `sysupgrade.itb` file to your BPI-R4 Lite, your AW7916 Wi-Fi 6E module will be structurally recognized by the PCIe bus and broadcast natively on the 6GHz spectrum.
 
-> ** To write into eMMC, I set the Jumper to 1 0 0 1 and SDcard is removed from the SDcard slot**
+
+** To write into eMMC, I set the Jumper to 1 0 0 1 and SDcard is removed from the SDcard slot**
